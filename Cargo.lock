@@ -219,12 +219,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "defaultdict"
-version = "0.16.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "32ce512c25314c95f64b194a2bf62da2961f5bc6f3c17cb9a567245b4b160cb2"
-
-[[package]]
 name = "derivative"
 version = "2.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -557,7 +551,6 @@ name = "leafy"
 version = "0.1.0"
 dependencies = [
  "bincode",
- "defaultdict",
  "poise",
  "rand",
  "serde",
