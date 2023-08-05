@@ -2,6 +2,8 @@
 
 use crate::{markov, Context, Error};
 use poise::serenity_prelude as serenity;
+use std::time::Duration;
+use tokio::time::sleep;
 
 /// Displays your or another user's account creation date
 #[poise::command(prefix_command, track_edits, slash_command)]
@@ -28,6 +30,13 @@ pub async fn names(
     for emoji in reacts {
         message.react(ctx.serenity_context(), emoji).await?;
     }
+
+    let vote_collector = message
+        .await_reactions(ctx)
+        .author_id(ctx.author().id)
+        .channel_id(ctx.channel_id())
+        .timeout(Duration::from_secs(10))
+        .build();
 
     Ok(())
 }
